@@ -5,10 +5,11 @@ import ReactDOM from 'react-dom'; // specifically for websites
 import './index.css'; // can add css for each component
 import Hello from './Hello.js';
 import * as serviceWorker from './serviceWorker';
+import 'tachyons';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Hello />
+    <Hello greeting={'Hello ' + 'React Ninja'}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
