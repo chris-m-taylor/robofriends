@@ -7,7 +7,12 @@ const CardList = ({robots}) => {
     // let robots = props.robots;
     const cardsArray = robots.map((user) => {
         return (
-            <Card key={user.id} id={user.id} name={user.name} email={user.email}/>
+            <Card 
+                key={user.id} 
+                id={user.id} 
+                name={user.name} 
+                email={user.email}
+            />
         )
     })
 

@@ -5,12 +5,11 @@ import ReactDOM from 'react-dom'; // specifically for websites
 import './index.css'; // can add css for each component
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
-import CardList from './CardList';
-import {robots} from './robots';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <CardList robots={robots}/>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
