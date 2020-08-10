@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'; // specifically for websites
 import './index.css'; // can add css for each component
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
-import App from './App';
+import App from './containers/App';
 
 ReactDOM.render(
   <React.StrictMode>
