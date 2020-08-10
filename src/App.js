@@ -19,16 +19,24 @@ class App extends React.Component {
     }
     // in search box we need onSearchChange
 
-    onSearchChange(event){
-        console.log("event is: ",event);
+    onSearchChange = (event) => { // use arrow functions to be able to use this in terms of the object
+        
+        //setting state for searchfield
+        this.setState({searchfield: event.target.value})
     }
 
     render(){
+        //filter array based on the searchfield
+        const filteredRobots = this.state.robots.filter(robot => { // the value of this is the input function that called it!!!
+            return(
+                robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
+            )
+        })
         return(
             <div className="tc">
             <h1>RoboFriends</h1>
             <SearchBox onSearchChange={this.onSearchChange}/>
-            <CardList robots={this.state.robots} />
+            <CardList robots={filteredRobots} />
         </div>
         );
     };
