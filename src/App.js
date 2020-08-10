@@ -1,7 +1,7 @@
 import React from 'react';
 import CardList from './CardList';
-
 import SearchBox from './SearchBox';
+import Scroll from './Scroll';
 import './App.css';
 
 //PROPS are things that come out of state STATE >> props
@@ -48,7 +48,10 @@ class App extends React.Component {
             <div className="tc">
             <h1 className="f1">RoboFriends</h1>
             <SearchBox onSearchChange={this.onSearchChange}/>
-            <CardList robots={filteredRobots} />
+            <Scroll>
+                <CardList robots={filteredRobots} />
+            </Scroll>
+            
         </div>
         );
     };
