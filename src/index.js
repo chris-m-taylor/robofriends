@@ -1,8 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+ // react uses webpack that allows us to use import
+
+import React from 'react'; // this is the robot that handles the view (can be anything)
+import ReactDOM from 'react-dom'; // specifically for websites
+import './index.css'; // can add css for each component
 import * as serviceWorker from './serviceWorker';
+import 'tachyons';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
