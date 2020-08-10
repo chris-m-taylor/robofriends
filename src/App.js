@@ -1,11 +1,12 @@
 import React from 'react';
 import CardList from './CardList';
-import {robots} from './robots';
+
 import SearchBox from './SearchBox';
 import './App.css';
 
 //PROPS are things that come out of state STATE >> props
 //STATE (an object that describes our application) can change
+// Components with state are smart components
 
 
 class App extends React.Component {
@@ -14,12 +15,19 @@ class App extends React.Component {
         super();
         this.state = { // these are the things that can change and 
                        //usually live in the parent component that passes state to different components
-            robots: robots,
+            robots: [],
             searchfield: '',
         }
     }
-    // in search box we need onSearchChange
 
+    //if the component mounted then run this
+    componentDidMount() {
+        fetch('http://jsonplaceholder.typicode.com/users') // fetching the users from API fetch is a tool tool to make requests from servers and is part of the window obj
+            .then(response => response.json())
+            .then(users => this.setState({robots: users}))
+    }
+
+    // in search box we need onSearchChange
     onSearchChange = (event) => { // use arrow functions to be able to use this in terms of the object
         
         //setting state for searchfield
@@ -33,6 +41,9 @@ class App extends React.Component {
                 robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
             )
         })
+        if (this.state.robots.length === 0){ // if it is taking a while to load
+            return <h1>Loading</h1>
+        }
         return(
             <div className="tc">
             <h1 className="f1">RoboFriends</h1>
