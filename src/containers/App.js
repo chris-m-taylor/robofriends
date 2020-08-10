@@ -1,7 +1,7 @@
 import React from 'react';
-import CardList from './CardList';
-import SearchBox from './SearchBox';
-import Scroll from './Scroll';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
 import './App.css';
 
 //PROPS are things that come out of state STATE >> props
@@ -35,25 +35,30 @@ class App extends React.Component {
     }
 
     render(){
+        // Destructer state
+        const {robots, searchfield} = this.state;
+
         //filter array based on the searchfield
-        const filteredRobots = this.state.robots.filter(robot => { // the value of this is the input function that called it!!!
+        const filteredRobots = robots.filter(robot => { // the value of this is the input function that called it!!!
             return(
-                robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
+                robot.name.toLowerCase().includes(searchfield.toLowerCase())
             )
         })
-        if (this.state.robots.length === 0){ // if it is taking a while to load
+        if (robots.length === 0){ // if it is taking a while to load
             return <h1>Loading</h1>
         }
-        return(
-            <div className="tc">
-            <h1 className="f1">RoboFriends</h1>
-            <SearchBox onSearchChange={this.onSearchChange}/>
-            <Scroll>
-                <CardList robots={filteredRobots} />
-            </Scroll>
-            
-        </div>
-        );
+        else{
+            return(
+                <div className="tc">
+                <h1 className="f1">RoboFriends</h1>
+                <SearchBox onSearchChange={this.onSearchChange}/>
+                <Scroll>
+                    <CardList robots={filteredRobots} />
+                </Scroll>
+                
+                </div>
+            );
+        }
     };
 }
 
