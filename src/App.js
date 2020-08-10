@@ -2,6 +2,7 @@ import React from 'react';
 import CardList from './CardList';
 import {robots} from './robots';
 import SearchBox from './SearchBox';
+import './App.css';
 
 //PROPS are things that come out of state STATE >> props
 //STATE (an object that describes our application) can change
@@ -22,7 +23,7 @@ class App extends React.Component {
     onSearchChange = (event) => { // use arrow functions to be able to use this in terms of the object
         
         //setting state for searchfield
-        this.setState({searchfield: event.target.value})
+        this.setState({searchfield: event.target.value}) //triggers a re render calling the render function
     }
 
     render(){
@@ -34,7 +35,7 @@ class App extends React.Component {
         })
         return(
             <div className="tc">
-            <h1>RoboFriends</h1>
+            <h1 className="f1">RoboFriends</h1>
             <SearchBox onSearchChange={this.onSearchChange}/>
             <CardList robots={filteredRobots} />
         </div>
