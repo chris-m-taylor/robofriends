@@ -2,6 +2,7 @@ import React from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import {robots} from '../robots';
 import ErrorBoundry from '../components/ErrorBoundry'
 import './App.css';
 
@@ -23,9 +24,11 @@ class App extends React.Component {
 
     //if the component mounted then run this
     componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users') // fetching the users from API fetch is a tool tool to make requests from servers and is part of the window obj
-            .then(response => response.json())
-            .then(users => this.setState({robots: users}))
+        // fetch('http://jsonplaceholder.typicode.com/users') // fetching the users from API fetch is a tool tool to make requests from servers and is part of the window obj
+        //     .then(response => response.json())
+        //     .then(users => this.setState({robots: users}))
+
+        this.setState({robots: robots});
     }
 
     // in search box we need onSearchChange
