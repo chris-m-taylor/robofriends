@@ -2,6 +2,7 @@ import React from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import ErrorBoundry from '../components/ErrorBoundry'
 import './App.css';
 
 //PROPS are things that come out of state STATE >> props
@@ -50,11 +51,13 @@ class App extends React.Component {
         else{
             return(
                 <div className="tc">
-                <h1 className="f1">RoboFriends</h1>
-                <SearchBox onSearchChange={this.onSearchChange}/>
-                <Scroll>
-                    <CardList robots={filteredRobots} />
-                </Scroll>
+                    <h1 className="f1">RoboFriends</h1>
+                    <SearchBox onSearchChange={this.onSearchChange}/>
+                    <Scroll>
+                        <ErrorBoundry>
+                            <CardList robots={filteredRobots} />
+                        </ErrorBoundry>
+                    </Scroll>
                 
                 </div>
             );
