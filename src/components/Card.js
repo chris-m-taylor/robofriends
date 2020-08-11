@@ -11,7 +11,6 @@ const Card = ({name, email, id}) => { //destructuring
                 <h2>{name}</h2>
                 <p>{email}</p>
             </div>
-
         </div>
     )
 }
